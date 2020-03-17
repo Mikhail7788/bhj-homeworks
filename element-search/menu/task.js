@@ -1,18 +1,13 @@
-'use strict'
+const menuSub = Array.from(document.querySelectorAll('li.menu__item > ul'));
+const menuItems = Array.from(document.querySelectorAll('li.menu__item > a'));
 
-let links = Array.from(document.querySelectorAll('.menu__link'));
-
-for (let item of links) {
-	item.onclick = function () {
-		let parentItem = item.parentElement;
-		if (parentItem.querySelector('.menu_sub').className === 'menu menu_sub') {
-			parentItem.querySelector('.menu_sub').className = 'menu menu_sub menu_active';
-		} else {
-			parentItem.querySelector('.menu_sub').className = 'menu menu_sub'
-		}
-
-		if (item.closest('.menu_main')) {
-			return false
-		}
-	}
+menuItems[1].onclick = function() {
+	menuSub[0].className = "menu menu_sub menu_active";
+	menuSub[1].className = "menu menu_sub";
+	return false;
+}
+menuItems[5].onclick = function() {
+	menuSub[1].className = "menu menu_sub menu_active";
+	menuSub[0].className = "menu menu_sub";
+	return false;
 }
