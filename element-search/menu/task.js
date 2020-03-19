@@ -1,13 +1,21 @@
-const menuSub = Array.from(document.querySelectorAll('li.menu__item > ul'));
-const menuItems = Array.from(document.querySelectorAll('li.menu__item > a'));
+function removeMenuActive(element) {
+  Array.from(
+    element.closest('.menu_main').querySelectorAll('.menu_active')
+  ).forEach(element => {
+    element.classList.remove('menu_active');
+  });
+}
 
-menuItems[1].onclick = function() {
-	menuSub[0].className = "menu menu_sub menu_active";
-	menuSub[1].className = "menu menu_sub";
-	return false;
+function click() {
+  if (this.nextElementSibling.tagName == "UL") {
+    let itemActive = this.nextElementSibling.classList.contains('menu_active');
+    removeMenuActive(this);
+    if (!itemActive)
+      this.nextElementSibling.classList.add('menu_active');
+  }
+  return false;
 }
-menuItems[5].onclick = function() {
-	menuSub[1].className = "menu menu_sub menu_active";
-	menuSub[0].className = "menu menu_sub";
-	return false;
-}
+
+Array.from(document.getElementsByClassName('menu__link')).forEach(element => {
+  element.onclick = click;
+});
