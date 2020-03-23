@@ -10,9 +10,10 @@ function menuOpen() {
 dropValue[0].addEventListener('click', menuOpen);
 
 function shift() {
+    dropValue[0].textContent = this.textContent;
     dropList[0].className = 'dropdown__list';
     return false;
-};
+}
 
 for (const item of dropItems) {
     item.onclick = shift;
