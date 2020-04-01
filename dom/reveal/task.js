@@ -13,3 +13,10 @@ for (let i = 0; i < reveal.length; i++) {
 		}    
   });
 }
+
+const button = document.getElementById('registerButton');
+button.addEventListener('click', e => {
+conts name = document.getElementById('fio');
+const user = name.value;
+console.log(`Пользователь ${user} зарегистрирован`);
+});
