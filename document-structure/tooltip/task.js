@@ -6,7 +6,7 @@ document.body.appendChild(tooltip);
 document.body.addEventListener('click', (e) => {
     let target = e.target;
     
-    if (target.className != 'has-tooltip');
+    if (target.className != 'has-tooltip') return;
     
     e.preventDefault();
     
