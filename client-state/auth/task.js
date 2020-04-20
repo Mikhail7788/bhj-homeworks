@@ -1,3 +1,5 @@
+'use strict';
+
 const welcome = document.querySelector('.welcome');
 const signinBtn = document.getElementById('signin__btn');
 const signin = document.querySelector('.signin');
