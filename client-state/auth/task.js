@@ -9,7 +9,16 @@ const xhr = new XMLHttpRequest();
 
 window.addEventListener('load', () => {
     signin.classList.add('signin_active');
-})
+    if (localStorage.userId) {
+        function welcomeStorage() {
+            signin.classList.remove('signin_active');
+            welcome.classList.add('welcome_active');
+            userId.innerText = localStorage.userId;
+        }
+        welcomeStorage();
+    }
+    
+});
 
 signinBtn.addEventListener('click', dataSend);
 
@@ -27,9 +36,8 @@ function dataSend(event) {
             
             if (getData.success) {
                 localStorage.userId = getData.user_id;
-                signin.classList.remove('signin_active');
-                welcome.classList.add('welcome_active');
-                userId.innerText = localStorage.userId;
+                welcomeStorage();
+                
             } else {
                 alert('Неверный логин или пароль');
             }
