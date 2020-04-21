@@ -11,4 +11,5 @@ if(!cookie.includes('closed=true')) {
         modal.classList.remove('modal_active');    
         document.cookie = 'closed=true';
     });
+
 }
