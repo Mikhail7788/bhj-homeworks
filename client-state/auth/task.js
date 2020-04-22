@@ -7,14 +7,15 @@ const userId = document.getElementById('user_id');
 const signinForm = document.getElementById('signin__form');
 const xhr = new XMLHttpRequest();
 
+const welcomeStorage = () => {
+    signin.classList.remove('signin_active');
+    welcome.classList.add('welcome_active');
+    userId.innerText = localStorage.userId;
+}
+
 window.addEventListener('load', () => {
     signin.classList.add('signin_active');
     if (localStorage.userId) {
-        function welcomeStorage() {
-            signin.classList.remove('signin_active');
-            welcome.classList.add('welcome_active');
-            userId.innerText = localStorage.userId;
-        }
         welcomeStorage();
     }
     
